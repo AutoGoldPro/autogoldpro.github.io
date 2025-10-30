@@ -202,20 +202,69 @@
       color: var(--accent-gold);
       margin-bottom: 1rem;
     }
-    .contact-section .btn {
+    .contact-section .btn-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .contact-section .btn-group .btn {
       background: var(--bg-secondary);
       color: var(--accent-blue);
       padding: 12px 24px;
       font-size: 1rem;
       position: relative;
     }
-    .contact-section .btn::before {
+    .contact-section .btn-group .btn::before {
       content: '💬 ';
       margin-right: 0.5rem;
     }
-    .contact-section .btn:hover {
+    .contact-section .btn-group .btn:hover {
       color: var(--accent-gold);
       border-color: var(--accent-gold);
+    }
+    .contact-section .btn-question {
+      background: transparent;
+      color: var(--accent-gold);
+      padding: 8px 12px;
+      border: 1px solid var(--accent-gold);
+      font-size: 1rem;
+      cursor: help;
+    }
+    .contact-section .btn-question:hover {
+      background: var(--accent-gold);
+      color: var(--bg-primary);
+    }
+    .contact-section .tooltip {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--card-bg);
+      color: var(--text-primary);
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      white-space: normal;
+      max-width: 300px;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      z-index: 10;
+    }
+    .contact-section .btn-question:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+    .contact-section .tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: var(--card-bg);
     }
     @media (max-width: 768px) {
       body { 
@@ -257,6 +306,13 @@
       .contact-section {
         margin: 2rem auto;
       }
+      .contact-section .btn-group {
+        flex-direction: row;
+        gap: 0.5rem;
+      }
+      .contact-section .tooltip {
+        display: none; /* Hide tooltip on mobile, as hover doesn't work */
+      }
     }
   </style>
 </head>
@@ -272,7 +328,7 @@
   </section>
 
   <div class="card">
-    <h3>✅ Current Status (as of October 31, 2025)</h3>
+    <h3>✅ Current Status (as of October 30, 2025)</h3>
     <div class="status-item" data-icon="✅">Contract deployed & verified</div>
     <div class="status-item" data-icon="✅">Ownership confirmed on BSCScan</div>
     <div class="status-item" data-icon="✅">Token info update submitted (logo pending approval)</div>
@@ -317,7 +373,15 @@
   <section class="contact-section">
     <h3>Direct Feedback</h3>
     <p>Questions, ideas, or suggestions? Message the creator directly.</p>
-    <a href="https://t.me/AutoGoldPro_AGP?direct" class="btn" target="_blank" aria-label="Direct Message Creator">Message Creator</a>
+    <div class="btn-group">
+      <a href="https://t.me/AutoGoldPro_AGP?direct" class="btn" target="_blank" aria-label="Direct Message Creator">💬 Message Creator</a>
+      <a href="#" class="btn btn-question" title="Works best on mobile or Desktop TG app. In browser? Join channel above and use button there.">
+        ?
+      </a>
+    </div>
+    <div class="tooltip">
+      Works best on mobile or Desktop TG app. In browser? Join channel above and use button there.
+    </div>
   </section>
 
   <p class="disclaimer">
