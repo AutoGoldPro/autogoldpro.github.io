@@ -60,9 +60,11 @@
     }
     .hero p {
       font-size: 1.1rem;
-      max-width: 600px;
+      max-width: 700px;
       word-wrap: break-word;
+      overflow-wrap: break-word;
       hyphens: auto;
+      white-space: normal;
     }
     .hero strong {
       color: var(--accent-gold);
@@ -88,18 +90,26 @@
       margin: 2rem auto;
     }
     .indicator-section p {
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto 1rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+      white-space: normal;
     }
     .indicator-section ul, .indicator-section ol {
       text-align: left;
       display: block;
-      max-width: 500px;
+      max-width: 600px;
       margin: 0 auto 1rem;
     }
     .indicator-section li {
       text-align: left;
       margin-bottom: 0.75rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+      white-space: normal;
     }
     .btn {
       display: inline-block;
@@ -175,6 +185,13 @@
       font-size: 0.9rem;
       background: rgba(0, 0, 0, 0.2);
       border-radius: 8px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+      white-space: normal;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
     @media (max-width: 768px) {
       body { 
