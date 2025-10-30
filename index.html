@@ -4,93 +4,220 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>$AGP — AutoGoldPro</title>
+  <meta name="description" content="Fair launch $AGP token: No taxes, LP burned, free pro trading indicator. Done differently." />
+  <link rel="icon" href="/agp-logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.7;
-      max-width: 850px;
-      margin: 40px auto;
-      padding: 0 20px;
-      color: #f0f0f0;
-      background: #0a0a0d;
+    :root {
+      --bg-primary: #0a0a0d;
+      --bg-secondary: #1a1a2e;
+      --card-bg: rgba(20, 20, 30, 0.8);
+      --text-primary: #f0f0f0;
+      --text-secondary: #aaa;
+      --accent-gold: #ffd700;
+      --accent-blue: #4da6ff;
+      --border: #333;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
-    h1, h2, h3 {
-      color: #ffd700;
-      margin-top: 32px;
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      color: var(--text-primary);
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+      text-align: center;
+      min-height: 100vh;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin: 0 0 1rem;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+      to { text-shadow: 0 0 30px rgba(255, 215, 0, 0.5); }
+    }
+    h2, h3, h4 {
+      color: var(--accent-gold);
+      margin-top: 3rem;
+      font-weight: 600;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+    }
+    .hero strong {
+      color: var(--accent-gold);
     }
     .card {
-      background: rgba(20, 20, 30, 0.6);
-      border: 1px solid #333;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 24px 0;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem auto;
+      text-align: left;
+      max-width: 700px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+    .indicator-section {
+      text-align: center;
+      max-width: 700px;
+      margin: 2rem auto;
+    }
+    .indicator-section p {
+      max-width: 600px;
+      margin: 0 auto 1rem;
+    }
+    .indicator-section ul, .indicator-section ol {
+      text-align: left;
+      display: block;
+      max-width: 500px;
+      margin: 0 auto 1rem;
+    }
+    .indicator-section li {
+      text-align: left;
+      margin-bottom: 0.75rem;
     }
     .btn {
       display: inline-block;
-      background: #1a1a2e;
-      color: #4da6ff !important;
-      padding: 10px 20px;
-      margin: 8px 8px 8px 0;
+      background: var(--bg-secondary);
+      color: var(--accent-blue) !important;
+      padding: 12px 24px;
+      margin: 0.5rem;
       text-decoration: none;
-      border: 1px solid #444;
-      border-radius: 8px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
       font-weight: 600;
-      transition: all 0.2s;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+      transition: left 0.5s;
+    }
+    .btn:hover::before {
+      left: 100%;
     }
     .btn:hover {
       background: #2a2a4e;
-      border-color: #666;
-      text-decoration: none;
+      border-color: var(--accent-gold);
+      color: var(--accent-gold) !important;
+      transform: scale(1.05);
+    }
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem 0;
     }
     ul {
-      padding-left: 24px;
+      padding-left: 1.5rem;
+      text-align: left;
+    }
+    ol {
+      padding-left: 1.5rem;
+      text-align: left;
     }
     li {
-      margin-bottom: 8px;
+      margin-bottom: 0.75rem;
+      position: relative;
     }
-    code {
-      background: #1e1e2e;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-family: monospace;
+    li::marker {
+      color: var(--accent-gold);
     }
     .status-item {
-      margin: 6px 0;
+      display: flex;
+      align-items: center;
+      margin: 0.75rem 0;
+      font-weight: 500;
+    }
+    .status-item::before {
+      content: attr(data-icon);
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .disclaimer {
+      text-align: center;
+      margin-top: 4rem;
+      padding: 1.5rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+    @media (max-width: 768px) {
+      body { padding: 10px; }
+      h1 { font-size: 2.2rem; }
+      .card { padding: 1.5rem; margin: 1rem; }
+      .btn-group { flex-direction: column; align-items: center; }
+      .indicator-section ul, .indicator-section ol { max-width: 100%; }
     }
   </style>
 </head>
 <body>
 
-  <h1>$AGP — AutoGoldPro</h1>
-  <p><strong>Fair Launch • LP Burned • 0% Tax</strong></p>
-
-  <p>Hi. I’m the creator behind AutoGoldPro, and I’m tired of scams.<br>
-  So I’m launching <strong>$AGP</strong> — just to show it can be done differently.<br>
-  «If it pumps — great. If not — you’ll still get a free pro-grade indicator.»</p>
-
-  <p>The <strong>ASTER Scalp Pro v5 Enhanced</strong> indicator will be available to all — but not yet.</p>
+  <section class="hero">
+    <h1>$AGP — AutoGoldPro</h1>
+    <p><strong>Fair Launch • LP Burned • 0% Tax</strong></p>
+    <p>Hi. I’m the creator behind AutoGoldPro, and I’m tired of scams.<br>
+    So I’m launching <strong>$AGP</strong> — just to show it can be done differently.<br>
+    <strong>«If it pumps — great. If not — you’ll still get a free pro-grade indicator.»</strong></p>
+    <p>The <strong>ASTER Scalp Pro v5 Enhanced</strong> indicator will be available to all — but not yet.</p>
+  </section>
 
   <div class="card">
     <h3>✅ Current Status (as of October 30, 2025)</h3>
-    <div class="status-item">✅ Contract deployed & verified</div>
-    <div class="status-item">✅ Ownership confirmed on BSCScan</div>
-    <div class="status-item">✅ Token info update submitted (logo pending approval)</div>
-    <div class="status-item">🟡 Liquidity: 100M AGP / BNB pair — preparing</div>
-    <div class="status-item">📢 Final launch announcement — coming after LP burn</div>
+    <div class="status-item" data-icon="✅">Contract deployed & verified</div>
+    <div class="status-item" data-icon="✅">Ownership confirmed on BSCScan</div>
+    <div class="status-item" data-icon="✅">Token info update submitted (logo pending approval)</div>
+    <div class="status-item" data-icon="🟡">Liquidity: 100M AGP / BNB pair — preparing</div>
+    <div class="status-item" data-icon="📢">Final launch announcement — coming after LP burn</div>
   </div>
 
-  <p><strong>Follow all updates in our official Telegram channel:</strong></p>
-  <a href="https://t.me/AutoGoldPro_AGP" class="btn" target="_blank">Telegram @AutoGoldPro_AGP</a>
+  <div class="btn-group">
+    <a href="https://t.me/AutoGoldPro_AGP" class="btn" target="_blank" aria-label="Join Telegram">Telegram @AutoGoldPro_AGP</a>
+  </div>
 
-  <h3>About the Bonus Indicator</h3>
-  <p><strong>ASTER Scalp Pro v5 Enhanced</strong> is a TradingView script for manual trading:</p>
-  <ul>
-    <li>Modes: Conservative, Balanced, Aggressive</li>
-    <li>Auto TP/SL + Trailing Stop</li>
-    <li>Market filter (BTC, ETH, BNB, or any pair from BINANCE, BYBIT, OKX)</li>
-    <li>Alerts for Long / Short signals</li>
-  </ul>
-  <p><em>Access will be enabled after launch. Not available yet.</em></p>
+  <section class="indicator-section">
+    <h3>About the Bonus Indicator</h3>
+    <p><strong>ASTER Scalp Pro v5 Enhanced</strong> is a TradingView script for manual trading:</p>
+    <ul>
+      <li>Modes: Conservative, Balanced, Aggressive</li>
+      <li>Auto TP/SL + Trailing Stop</li>
+      <li>Market filter (BTC, ETH, BNB, or any pair from BINANCE, BYBIT, OKX)</li>
+      <li>Alerts for Long / Short signals</li>
+    </ul>
+    <p><em>Access will be enabled after launch. Not available yet.</em></p>
+  </section>
 
   <div class="card">
     <h3>✅ Planned Token Details</h3>
@@ -105,12 +232,14 @@
 
   <p>Buy on PancakeSwap (soon)</p>
 
-  <p>
-    <a href="https://bscscan.com/address/0x238b6FD97A9Ed8Cd7dc3ba820Aa45E83fd928096" class="btn" target="_blank">BSCScan Contract</a>
-    <a href="https://repo.sourcify.dev/56/0x238b6FD97A9Ed8Cd7dc3ba820Aa45E83fd928096" class="btn" target="_blank">Sourcify Verification</a>
-  </p>
+  <div class="btn-group">
+    <a href="https://bscscan.com/address/0x238b6FD97A9Ed8Cd7dc3ba820Aa45E83fd928096" class="btn" target="_blank" aria-label="View Contract on BSCScan">BSCScan Contract</a>
+    <a href="https://repo.sourcify.dev/56/0x238b6FD97A9Ed8Cd7dc3ba820Aa45E83fd928096" class="btn" target="_blank" aria-label="View Sourcify Verification">Sourcify Verification</a>
+  </div>
 
-  <p>⚠️ This is a meme token with no financial value. The indicator is for educational purposes only. Trading involves risk. Not financial advice.</p>
+  <p class="disclaimer">
+    ⚠️ This is a meme token with no financial value. The indicator is for educational purposes only. Trading involves risk. Not financial advice.
+  </p>
 
   <!--79206446108@yandex.ru-->
 
