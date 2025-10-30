@@ -193,6 +193,30 @@
       margin-left: auto;
       margin-right: auto;
     }
+    .contact-section {
+      max-width: 700px;
+      margin: 3rem auto;
+      text-align: center;
+    }
+    .contact-section h3 {
+      color: var(--accent-gold);
+      margin-bottom: 1rem;
+    }
+    .contact-section .btn {
+      background: var(--bg-secondary);
+      color: var(--accent-blue);
+      padding: 12px 24px;
+      font-size: 1rem;
+      position: relative;
+    }
+    .contact-section .btn::before {
+      content: '💬 ';
+      margin-right: 0.5rem;
+    }
+    .contact-section .btn:hover {
+      color: var(--accent-gold);
+      border-color: var(--accent-gold);
+    }
     @media (max-width: 768px) {
       body { 
         padding: 15px; 
@@ -230,6 +254,9 @@
         font-size: 0.95rem; 
         line-height: 1.8; 
       }
+      .contact-section {
+        margin: 2rem auto;
+      }
     }
   </style>
 </head>
@@ -245,7 +272,7 @@
   </section>
 
   <div class="card">
-    <h3>✅ Current Status (as of October 30, 2025)</h3>
+    <h3>✅ Current Status (as of October 31, 2025)</h3>
     <div class="status-item" data-icon="✅">Contract deployed & verified</div>
     <div class="status-item" data-icon="✅">Ownership confirmed on BSCScan</div>
     <div class="status-item" data-icon="✅">Token info update submitted (logo pending approval)</div>
@@ -274,7 +301,7 @@
     <ul>
       <li>Total Supply: 1,000,000,000 AGP</li>
       <li>Liquidity: 100,000,000 AGP / BNB pair</li>
-      <li>LP Status: Planned to be burned to 0x...dEaD after liquidity addition</li>
+      <li>LP Status: Will be burned permanently</li>
       <li>Tax: 0% on all transfers</li>
       <li>Owner: None (immutable contract)</li>
     </ul>
@@ -287,6 +314,12 @@
     <a href="https://repo.sourcify.dev/56/0x238b6FD97A9Ed8Cd7dc3ba820Aa45E83fd928096" class="btn" target="_blank" aria-label="View Sourcify Verification">Sourcify Verification</a>
   </div>
 
+  <section class="contact-section">
+    <h3>Direct Feedback</h3>
+    <p>Questions, ideas, or suggestions? Message the creator directly.</p>
+    <a href="https://t.me/AutoGoldPro_AGP?direct" class="btn" target="_blank" aria-label="Direct Message Creator">Message Creator</a>
+  </section>
+
   <p class="disclaimer">
     ⚠️ This is a meme token with no financial value. The indicator is for educational purposes only. Trading involves risk. Not financial advice.
   </p>
@@ -295,4 +328,3 @@
 
 </body>
 </html>
-
