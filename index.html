@@ -207,6 +207,7 @@
       justify-content: center;
       align-items: center;
       gap: 0.5rem;
+      position: relative;
     }
     .contact-section .btn-group .btn {
       background: var(--bg-secondary);
@@ -215,29 +216,13 @@
       font-size: 1rem;
       position: relative;
     }
-    .contact-section .btn-group .btn::before {
-      content: '💬 ';
-      margin-right: 0.5rem;
-    }
     .contact-section .btn-group .btn:hover {
       color: var(--accent-gold);
       border-color: var(--accent-gold);
     }
-    .contact-section .btn-question {
-      background: transparent;
-      color: var(--accent-gold);
-      padding: 8px 12px;
-      border: 1px solid var(--accent-gold);
-      font-size: 1rem;
-      cursor: help;
-    }
-    .contact-section .btn-question:hover {
-      background: var(--accent-gold);
-      color: var(--bg-primary);
-    }
-    .contact-section .tooltip {
+    .message-tooltip {
       position: absolute;
-      bottom: 100%;
+      top: 100%;
       left: 50%;
       transform: translateX(-50%);
       background: var(--card-bg);
@@ -252,19 +237,20 @@
       visibility: hidden;
       transition: opacity 0.3s, visibility 0.3s;
       z-index: 10;
+      margin-top: 0.5rem;
     }
-    .contact-section .btn-question:hover .tooltip {
-      opacity: 1;
-      visibility: visible;
-    }
-    .contact-section .tooltip::after {
+    .message-tooltip::after {
       content: '';
       position: absolute;
-      top: 100%;
+      top: -5px;
       left: 50%;
       transform: translateX(-50%);
       border: 5px solid transparent;
-      border-top-color: var(--card-bg);
+      border-bottom-color: var(--card-bg);
+    }
+    .btn-message:hover + .message-tooltip {
+      opacity: 1;
+      visibility: visible;
     }
     @media (max-width: 768px) {
       body { 
@@ -310,7 +296,7 @@
         flex-direction: row;
         gap: 0.5rem;
       }
-      .contact-section .tooltip {
+      .message-tooltip {
         display: none; /* Hide tooltip on mobile, as hover doesn't work */
       }
     }
@@ -328,7 +314,7 @@
   </section>
 
   <div class="card">
-    <h3>✅ Current Status (as of October 30, 2025)</h3>
+    <h3>✅ Current Status (as of October 31, 2025)</h3>
     <div class="status-item" data-icon="✅">Contract deployed & verified</div>
     <div class="status-item" data-icon="✅">Ownership confirmed on BSCScan</div>
     <div class="status-item" data-icon="✅">Token info update submitted (logo pending approval)</div>
@@ -374,13 +360,8 @@
     <h3>Direct Feedback</h3>
     <p>Questions, ideas, or suggestions? Message the creator directly.</p>
     <div class="btn-group">
-      <a href="https://t.me/AutoGoldPro_AGP?direct" class="btn" target="_blank" aria-label="Direct Message Creator">💬 Message Creator</a>
-      <a href="#" class="btn btn-question" title="Works best on mobile or Desktop TG app. In browser? Join channel above and use button there.">
-        ?
-      </a>
-    </div>
-    <div class="tooltip">
-      Works best on mobile or Desktop TG app. In browser? Join channel above and use button there.
+      <a href="https://t.me/AutoGoldPro_AGP?direct" class="btn btn-message" target="_blank" aria-label="Direct Message Creator">Message Creator</a>
+      <div class="message-tooltip">Works best on mobile or Desktop TG app. In browser? Join channel above and use button there.</div>
     </div>
   </section>
 
